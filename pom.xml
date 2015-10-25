@@ -295,6 +295,17 @@
             </testResource>
         </testResources>
         <plugins>
+        	<plugin>
+		      <artifactId>maven-site-plugin</artifactId>
+		      <version>3.4</version>
+		      <dependencies>
+		          <dependency>
+		            <groupId>org.apache.maven.wagon</groupId>
+		            <artifactId>wagon-webdav-jackrabbit</artifactId>
+		            <version>2.6</version>
+		          </dependency>
+		        </dependencies>
+		    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -324,7 +335,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
-                    <warName>petclinic</warName>
+                    <warName>spring-petclinic-1.0.0-SNAPSHOT</warName>
                 </configuration>
             </plugin>
             <plugin>
@@ -368,9 +379,9 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
+                	<url>http://localhost:8080/manager/text</url>
                     <server>tomcat-development-server</server>
-                    <port>9966</port>
-                    <path>/petclinic</path>
+                    <path>/target</path>
                 </configuration>
             </plugin>
             <plugin>
@@ -408,6 +419,12 @@
             </plugin>
         </plugins>
     </reporting>
+    <distributionManagement>
+	  <snapshotRepository>
+	    <id>snapshots</id>
+	    <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+	  </snapshotRepository>
+	</distributionManagement>
 
     <url>demopetclinic</url>
 </project>
