@@ -409,12 +409,11 @@
         </plugins>
     </reporting>
     <distributionManagement>
-        <distributionManagement>
           <snapshotRepository>
             <id>snapshots</id>
             <url>http://52.8.147.26:8081/nexus/content/repositories/snapshots</url>
           </snapshotRepository>
-        </distributionManagement>
+    </distributionManagement>
 
     <url>demopetclinic</url>
 </project>
